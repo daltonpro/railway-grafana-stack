@@ -6,6 +6,20 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 
+  - job_name: "Proxy LAX"
+    static_configs:
+      # Replace this with the IP address or hostname of your server
+      # This will be the service name for Docker Compose users
+      - targets: [ "72.5.46.63:25627" ]
+        # Customize or/and rewrite your labels (optional)
+        labels:
+          # The instance label will be shown on the dashboard
+          # This is the server's IP address by default
+          instance: "lax-proxy.trilogymc.net"
+          friendly_name: "Proxy LAX"
+          environment: "production"
+      
+
   # - job_name: 'example_api'
   #   scheme: http
   #   static_configs:
